@@ -85,9 +85,9 @@
 </head>
 <body>
   <div class="container">
-    <h2>โปรแกรมคำนวณอายุ (ปี พ.ศ.)</h2>
+    <h2>🕰️ โปรแกรมคำนวณอายุ ⌛</h2>
     
-    <label>วันเกิด:</label>
+    <label>วันที่</label>
     <select id="day">
       <option value="">-- เลือกวัน --</option>
       <script>
@@ -97,7 +97,7 @@
       </script>
     </select>
 
-    <label>เดือนเกิด:</label>
+    <label>เดือนเกิด</label>
     <select id="month">
       <option value="">-- เลือกเดือน --</option>
       <option value="0">มกราคม</option>
@@ -114,8 +114,8 @@
       <option value="11">ธันวาคม</option>
     </select>
 
-    <label>ปีเกิด (พ.ศ.):</label>
-    <input type="number" id="year" placeholder="เช่น 2551" min="2400" max="3000" />
+    <label>ปีเกิด (พ.ศ.)</label>
+    <input type="number" id="year" placeholder="เช่น 2400" min="2400" max="3000" />
 
     <button onclick="calculateAge()">คำนวณ</button>
     <p id="result"></p>
@@ -142,13 +142,13 @@ function calculateAge() {
 
   if (!day || isNaN(month) || isNaN(yearBE)) {
     resultEl.style.color = 'red';
-    resultEl.innerText = "กรุณาเลือกวัน เดือน และกรอกปีเกิดให้ถูกต้อง";
+    resultEl.innerText = "❌กรุณาเลือกวัน เดือน และกรอกปีเกิดให้ถูกต้อง❌";
     return;
   }
 
   if (yearBE < 2400 || yearBE > 3000) {
     resultEl.style.color = 'red';
-    resultEl.innerText = "กรุณากรอกปีเกิดเป็นปี พ.ศ. เท่านั้น (เช่น 2551)";
+    resultEl.innerText = "❌กรุณากรอกเป็นปี พ.ศ. เท่านั้น (เช่น 2400)❌";
     return;
   }
 
@@ -157,14 +157,14 @@ function calculateAge() {
 
   if (birthDate.getFullYear() !== yearAD || birthDate.getMonth() !== month || birthDate.getDate() !== day) {
     resultEl.style.color = 'red';
-    resultEl.innerText = "วันที่ไม่ถูกต้อง กรุณากรอกใหม่";
+    resultEl.innerText = "❌วันที่ไม่ถูกต้อง กรุณากรอกใหม่❌";
     return;
   }
 
   const now = new Date();
   if (birthDate > now) {
     resultEl.style.color = 'red';
-    resultEl.innerText = "วันเกิดต้องไม่ใช่อีกวันในอนาคต";
+    resultEl.innerText = "❌วันเกิดต้องไม่ใช่อีกวันในอนาคต❌";
     return;
   }
 
@@ -192,8 +192,8 @@ function calculateAge() {
   const monthName = monthThai(month);
   
   resultEl.innerText = 
-    `เกิดวัน${dayName}ที่ ${day} ${monthName} พ.ศ. ${yearBE}\n\n` +
-    `ขณะนี้อายุ ${years} ปี ${months} เดือน ${days} วัน\n` +
+    `วัน${dayName}ที่ ${day} ${monthName} ค.ศ. ${yearAD}\n\n` +
+    `อายุ ${years} ปี ${months} เดือน ${days} วัน\n` +
     `(นับเป็นจำนวนวันได้ ${diffDays.toLocaleString('th-TH')} วัน)`;
 }
 </script>
