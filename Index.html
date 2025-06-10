@@ -1,67 +1,87 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8" />
-<title>โปรแกรมคำนวณอายุ (ปี พ.ศ.)</title>
-<link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet" />
-<style>
-  body {
-    background: linear-gradient(to bottom right, #a2d2ff, #cdb4db);
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Kanit', sans-serif;
-    font-size: 50px;
-  }
-  .container {
-    background: white;
-    padding: 100px;
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    text-align: center;
-    width: 1000px;
-  }
-  h2 {
-    margin-bottom: 100px;
-    font-size: 50px;
-    color: #333;
-  }
-  label {
-    font-size: 50px;
-    display: block;
-    margin-bottom: 10px;
-    text-align: left;
-  }
-  select, input[type=number] {
-    width: 100%;
-    padding: 10px;
-    font-size: 50px;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    box-sizing: border-box;
-    margin-bottom: 20px;
-  }
-  button {
-    background-color: #6c5ce7;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    font-size: 50px;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  button:hover {
-    background-color: #349961;
-  }
-  #result {
-    margin-top: 20px;
-    font-size: 50x;
-    color: #2d3436;
-    white-space: pre-line;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>โปรแกรมคำนวณอายุ (ปี พ.ศ.)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #a2d2ff, #cdb4db);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Kanit', sans-serif;
+      font-size: 5vw;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .container {
+      background: white;
+      padding: 5vw;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      text-align: center;
+      max-width: 800px;
+      width: 100%;
+    }
+    h2 {
+      margin-bottom: 40px;
+      font-size: 6vw;
+      color: #333;
+    }
+    label {
+      font-size: 4.5vw;
+      display: block;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+    select, input[type=number] {
+      width: 100%;
+      padding: 1vw;
+      font-size: 4.5vw;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+    }
+    button {
+      background-color: #6c5ce7;
+      color: white;
+      border: none;
+      padding: 1vw 2vw;
+      font-size: 5vw;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #349961;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 4.5vw;
+      color: #2d3436;
+      white-space: pre-line;
+    }
+
+    /* 📱 Responsive: เมื่อหน้าจอใหญ่กว่า 768px ให้ใช้ขนาดคงที่แทน vw */
+    @media (min-width: 768px) {
+      body {
+        font-size: 20px;
+      }
+      h2 {
+        font-size: 30px;
+      }
+      label, select, input[type=number], button, #result {
+        font-size: 20px;
+      }
+      .container {
+        padding: 50px;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="container">
